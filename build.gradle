@@ -1,0 +1,56 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'java'
+	id 'eclipse'
+	id 'org.springframework.boot' version '2.0.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.5.RELEASE'
+	id 'com.moowork.node' version "1.2.0"
+}
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task ngBuild(type: NpmTask) {
+	if(env == 'prod') dependsOn 'npm_install'
+	group = BasePlugin.BUILD_GROUP
+	args = ['run', 'build']
+}
+processResources.dependsOn ngBuild
+
+
+def loadEnv() {
+    project.ext."env" = project.hasProperty('env') ? env : 'prod'
+    processResources {
+	    filesMatching('**/application.yml') {
+	        filter {
+	            it.replace('#spring.profiles.active#', env)
+	        }
+	    }
+    }
+}
+loadEnv()
