@@ -1,6 +1,0 @@
-spring:
-  profiles:
-    active: #spring.profiles.active#
-  resources:
-    static-locations:
-    - classpath:angular
