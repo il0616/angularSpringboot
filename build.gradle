@@ -1,19 +1,8 @@
-buildscript {
-	ext {
-		springBootVersion = '2.0.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
-}
 
 plugins {
 	id 'java'
 	id 'eclipse'
-	id 'org.springframework.boot' version '2.0.2.RELEASE'
+	id 'org.springframework.boot' version '2.0.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.5.RELEASE'
 	id 'com.moowork.node' version "1.2.0"
 }
@@ -24,24 +13,36 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+//	mavenCentral()
+	jcenter()
 }
-
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('org.springframework.boot:spring-boot-devtools')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	implementation('org.springframework.boot:spring-boot-starter-data-rest')
+	implementation('org.springframework.boot:spring-boot-starter-security')
+	implementation('org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE')
+//	implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.1.RELEASE'
+	implementation 'org.springframework.security:spring-security-jwt:1.0.9.RELEASE'
+	runtimeOnly('com.h2database:h2')
+	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.security:spring-security-test')
 }
 
-task ngBuild(type: NpmTask) {
-	if(env == 'prod') dependsOn 'npm_install'
+task ngBuild(type: YarnTask) {
 	group = BasePlugin.BUILD_GROUP
-	args = ['run', 'build']
+	if(env == 'prod') {
+		dependsOn 'yarn_install'
+		args = ['run', 'buildForProd']	
+	} else
+		args = ['run', 'build']
+	
 }
-processResources.dependsOn ngBuild
-
+// processResources.dependsOn ngBuild
+// classes.dependsOn ngBuild
 
 def loadEnv() {
     project.ext."env" = project.hasProperty('env') ? env : 'prod'
