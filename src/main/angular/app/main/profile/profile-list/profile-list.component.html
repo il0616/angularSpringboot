@@ -1,0 +1,59 @@
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 profile-table">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Excel Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> 다운로드 </th>
+      <td mat-cell *matCellDef="let element">
+        <a href="assets/temp.zip" (click)="$event.stopPropagation()"><img src="assets/img/icon_xlsx.svg" height="40px"></a>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="colspan">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length - 2"></td>
+    </ng-container>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="2">
+        <div class="element-detail-container" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <table mat-table [dataSource]="element.csv" class="csv-table">
+            <ng-container matColumnDef="csvName">
+              <th mat-header-cell *matHeaderCellDef> CSV Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.csvName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="down">
+              <th mat-header-cell *matHeaderCellDef> Download </th>
+              <td mat-cell *matCellDef="let element"> <a href="assets/temp.zip"><img src="assets/img/icon_csv.svg" height="40px"></a> </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedExpandedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedExpandedColumns;" class="element-row"></tr>
+          </table>
+        </div>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      class="element-row"
+      (click)="profileElementClick(row)">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['colspan','expandedDetail'];" class="detail-row"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr> -->
+  </table>
