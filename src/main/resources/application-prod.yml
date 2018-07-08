@@ -1,2 +1,9 @@
 server:
   port: 80
+  
+spring:
+  resources:
+    cache:
+      cachecontrol:
+        max-age: 3600 
+         

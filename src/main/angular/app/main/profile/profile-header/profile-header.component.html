@@ -1,0 +1,4 @@
+<nav>
+  <button mat-raised-button (click)="importInput.click()">Import</button>
+  <input hidden type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" (change)="importFile(importInput.files)" #importInput>
+</nav>

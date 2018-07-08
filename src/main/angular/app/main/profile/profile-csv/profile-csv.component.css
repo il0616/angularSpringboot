@@ -1,12 +1,76 @@
-table {
-  margin-left: 10px;
-  width: 100%;
-  border-collapse: collapse;
+:host {
+  font-family: 'Roboto', 'Noto Sans KR'
 }
 
-td,
+table {
+  margin-left: 10px;
+  width: 1000px;
+  max-height: 90vh;
+  border-spacing: 0;
+}
+
+td {
+  border-bottom: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  height: 17px;
+  background-color: white;
+}
+
 th {
-  text-align: left;
+  height: 17px;
+  text-align: center;
+  border-top: 1px solid #D4D4D4;
+  border-bottom: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  background-color: #E6E6E6;
+  width: 800px;
+}
+
+th:first-child, td:first-child {
+  border-left: 1px solid #D4D4D4;
+}
+
+
+
+/* table {
+  margin-left: 10px;
+  width: 1000px;
+  border-collapse: collapse;
+  max-height: 90vh;
+}
+
+td {
   border: 1px solid #D4D4D4;
   height: 17px;
+  background-color: white;
 }
+
+th {
+  text-align: center;
+  border-left: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  border-bottom: 1px solid white;
+  height: 17px;
+  background-color: #E6E6E6;
+  background-clip: padding-box;
+  width: 800px;
+}
+
+th:before{
+    content:'';
+    position:absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    border-bottom: 1px solid #D4D4D4;
+}
+
+th:after{
+    content:'';
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    border-bottom: 1px solid #D4D4D4;
+}
+ */

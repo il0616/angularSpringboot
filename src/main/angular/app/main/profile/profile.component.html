@@ -1,2 +1,17 @@
-<app-profile-list class="left-container"></app-profile-list>
-<app-profile-csv class="right-container"></app-profile-csv>
+<app-profile-header></app-profile-header>
+<mat-drawer-container class="example-container" autosize>
+
+  <div class="example-sidenav-content">
+    <app-profile-list class="left-container"></app-profile-list>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+
+  <mat-drawer #drawer class="sidenav" mode="side" position="end">
+    <div class="csv-container">
+      <app-profile-csv></app-profile-csv>
+    </div>
+  </mat-drawer>
+
+</mat-drawer-container>

@@ -5,7 +5,8 @@ import {
   MatButtonModule,
   MatInputModule,
   MatFormFieldModule,
-  MatTableModule
+  MatTableModule,
+  MatSidenavModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -19,7 +20,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatSidenavModule
   ],
   declarations: []
 })

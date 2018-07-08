@@ -7,6 +7,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { ProfileCsvComponent } from './profile/profile-csv/profile-csv.component';
+import { ProfileHeaderComponent } from './profile/profile-header/profile-header.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ProfileCsvComponent } from './profile/profile-csv/profile-csv.component
     NavBarComponent,
     ProfileComponent,
     ProfileListComponent,
-    ProfileCsvComponent
+    ProfileCsvComponent,
+    ProfileHeaderComponent
   ]
 })
 export class MainModule { }

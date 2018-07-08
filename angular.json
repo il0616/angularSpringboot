@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "build/resources/main/angular",
+            "outputPath": "build/resources/main/angular/ng",
             "index": "src/main/angular/index.html",
             "main": "src/main/angular/main.ts",
             "polyfills": "src/main/angular/polyfills.ts",
@@ -23,6 +23,7 @@
               "src/main/angular/assets"
             ],
             "styles": [
+              "src/main/angular/custom-material-theme.scss",
               "src/main/angular/styles.css"
             ],
             "scripts": []

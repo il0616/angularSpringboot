@@ -4,3 +4,7 @@ spring:
   resources:
     static-locations:
     - classpath:angular
+    cache:
+      cachecontrol:
+        max-age: 3600 
+         
