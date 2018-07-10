@@ -20,6 +20,13 @@
     overflow: hidden;
 }
 
+@media(max-width: 1024px) {
+    .sidenav {
+        width: 90%;
+        overflow: hidden;
+    }
+}
+
 .csv-container {
     overflow: auto;
     max-height: 90vh;
