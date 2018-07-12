@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { ProfileCsvComponent } from './profile/profile-csv/profile-csv.component';
 import { ProfileHeaderComponent } from './profile/profile-header/profile-header.component';
+import { UserComponent } from './user/user.component';
+import { VersionComponent } from './version/version.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { ProfileHeaderComponent } from './profile/profile-header/profile-header.
     ProfileComponent,
     ProfileListComponent,
     ProfileCsvComponent,
-    ProfileHeaderComponent
+    ProfileHeaderComponent,
+    UserComponent,
+    VersionComponent
   ]
 })
 export class MainModule { }
