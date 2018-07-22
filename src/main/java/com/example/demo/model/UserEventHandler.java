@@ -1,4 +1,4 @@
-package com.example.demo.member;
+package com.example.demo.model;
 
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 
 @RepositoryEventHandler
 @Component
-public class MemberEventHandler {
+public class UserEventHandler {
 	@HandleBeforeSave
-	public void handleMemberSave(Member member) {
-		System.out.println(member.remark);
+	public void handleMemberSave(User member) {
+		
 	}
 	
 	@HandleAfterDelete
-	public void handleMemberDelete(Member member) {
-		System.out.println("Delete : " + member.remark);
+	public void handleMemberDelete(User member) {
+
 	}
 	
 }

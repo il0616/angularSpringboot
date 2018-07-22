@@ -1,3 +1,8 @@
-<p>
-  user works!
-</p>
+<button (click)="getSelectedRows()">Get Selected Rows</button>
+
+<ag-grid-angular 
+  #agGrid
+  [gridOptions]="gridOptions"
+  class="ag-theme-material grid"
+  >
+</ag-grid-angular>

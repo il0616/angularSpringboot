@@ -10,12 +10,14 @@ import { ProfileCsvComponent } from './profile/profile-csv/profile-csv.component
 import { ProfileHeaderComponent } from './profile/profile-header/profile-header.component';
 import { UserComponent } from './user/user.component';
 import { VersionComponent } from './version/version.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     MainRoutingModule,
-    SharedMaterialModule
+    SharedMaterialModule,
+    AgGridModule.withComponents([])
   ],
   declarations: [
     MainComponent,
