@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileMainComponent } from './profile-main.component';
+import { ExcelComponent } from './excel.component';
 
-describe('ProfileMainComponent', () => {
-  let component: ProfileMainComponent;
-  let fixture: ComponentFixture<ProfileMainComponent>;
+describe('ExcelComponent', () => {
+  let component: ExcelComponent;
+  let fixture: ComponentFixture<ExcelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileMainComponent ]
+      declarations: [ ExcelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileMainComponent);
+    fixture = TestBed.createComponent(ExcelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

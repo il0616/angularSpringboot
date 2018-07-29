@@ -11,13 +11,20 @@ import { ProfileHeaderComponent } from './profile/profile-header/profile-header.
 import { UserComponent } from './user/user.component';
 import { VersionComponent } from './version/version.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SelectCellEditorComponent } from './select-cell-editor/select-cell-editor.component';
+import { PasswordCellEditorComponent } from './password-cell-editor/password-cell-editor.component';
+import { FormsModule } from '@angular/forms';
+import { ExcelComponent } from './excel/excel.component';
+import { HotTableModule, HotTableRegisterer } from '@handsontable/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     MainRoutingModule,
     SharedMaterialModule,
-    AgGridModule.withComponents([])
+    FormsModule,
+    AgGridModule.withComponents([SelectCellEditorComponent, PasswordCellEditorComponent]),
+    HotTableModule
   ],
   declarations: [
     MainComponent,
@@ -27,7 +34,11 @@ import { AgGridModule } from 'ag-grid-angular';
     ProfileCsvComponent,
     ProfileHeaderComponent,
     UserComponent,
-    VersionComponent
-  ]
+    VersionComponent,
+    SelectCellEditorComponent,
+    PasswordCellEditorComponent,
+    ExcelComponent
+  ],
+  providers: [ HotTableRegisterer ]
 })
 export class MainModule { }

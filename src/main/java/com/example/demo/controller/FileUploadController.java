@@ -18,6 +18,7 @@ public class FileUploadController {
 
 	@PostMapping("/import")
 	public ResponseEntity<String> importExcelFile(MultipartFile excelFile, String path) throws IOException {
+		System.out.println(excelFile.getContentType());
 		if( !"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".equals(excelFile.getContentType()) )
 			return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body("엑셀 파일만 업로드 하세요.");
 		fileManager.saveFile(path, excelFile);

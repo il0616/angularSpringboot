@@ -8,7 +8,8 @@ import {
   MatTableModule,
   MatSidenavModule,
   MatTreeModule,
-  MatIconModule
+  MatIconModule,
+  MatSelectModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -25,7 +26,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     CdkTableModule,
     MatSidenavModule,
     MatTreeModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   declarations: []
 })

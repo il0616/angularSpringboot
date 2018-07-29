@@ -1,0 +1,5 @@
+<mat-form-field [style.width]="matFormFieldWidth" [style.hegiht]="matFormFieldHeight" (keydown)="onKeyDown($event)">
+  <mat-select [(value)]="selectedValue">
+    <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+  </mat-select>
+</mat-form-field>

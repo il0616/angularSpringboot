@@ -3,6 +3,8 @@ import { AgGridNg2 } from 'ag-grid-angular';
 import { HttpClient } from '@angular/common/http';
 import { GridOptions, ColDef, RowNode } from 'ag-grid';
 import { RowSpanParams, NewValueParams } from 'ag-grid/dist/lib/entities/colDef';
+import { SelectCellEditorComponent } from '../select-cell-editor/select-cell-editor.component';
+import { PasswordCellEditorComponent } from '../password-cell-editor/password-cell-editor.component';
 
 @Component({
   selector: 'app-user',
@@ -21,11 +23,13 @@ export class UserComponent implements OnInit {
     }, {
       headerName: 'Password',
       valueGetter: () => '**********',
-      valueSetter: params => params.newValue.search(/^\*+/) === -1,
+      valueSetter: params => params.newValue.length,
       editable: true,
+      cellEditor: 'passwordEditor',
       suppressFilter: true,
       suppressSorting: true,
       onCellValueChanged: (params: NewValueParams) => {
+        console.log(params);
         params.api.flashCells({
           rowNodes: [params.node],
           columns: [params.column]
@@ -39,7 +43,7 @@ export class UserComponent implements OnInit {
       },
       cellEditorSelector: params => {
         return {
-          component: 'agSelectCellEditor',
+          component: 'selectEditor',
           params: { values: this.userRoles }
         };
       },
@@ -72,7 +76,11 @@ export class UserComponent implements OnInit {
       stopEditingWhenGridLosesFocus: true,
       onGridReady: this.onGridReady,
       enableCellChangeFlash: true,
-      enterMovesDownAfterEdit: true
+      enterMovesDownAfterEdit: true,
+      frameworkComponents: {
+        selectEditor: SelectCellEditorComponent,
+        passwordEditor: PasswordCellEditorComponent
+      }
     }
 
     
