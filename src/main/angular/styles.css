@@ -20,5 +20,9 @@ body {
 
 .ag-theme-material .ag-cell-inline-editing {
   height: 100%;
-  padding: 1em;
+  padding: 0.4em 1em;
+}
+
+.ag-theme-material .ag-cell-edit-input {
+  margin: 0.6em 0;
 }

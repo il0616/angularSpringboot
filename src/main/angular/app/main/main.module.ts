@@ -13,7 +13,7 @@ import { VersionComponent } from './version/version.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { SelectCellEditorComponent } from './select-cell-editor/select-cell-editor.component';
 import { PasswordCellEditorComponent } from './password-cell-editor/password-cell-editor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExcelComponent } from './excel/excel.component';
 import { HotTableModule, HotTableRegisterer } from '@handsontable/angular';
 
@@ -24,7 +24,8 @@ import { HotTableModule, HotTableRegisterer } from '@handsontable/angular';
     SharedMaterialModule,
     FormsModule,
     AgGridModule.withComponents([SelectCellEditorComponent, PasswordCellEditorComponent]),
-    HotTableModule
+    HotTableModule,
+    ReactiveFormsModule
   ],
   declarations: [
     MainComponent,

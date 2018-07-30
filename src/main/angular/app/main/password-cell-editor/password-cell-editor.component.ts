@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ICellEditorParams } from 'ag-grid';
 import { ICellEditorAngularComp } from 'ag-grid-angular';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,6 +10,10 @@ import { ICellEditorAngularComp } from 'ag-grid-angular';
   styleUrls: ['./password-cell-editor.component.css']
 })
 export class PasswordCellEditorComponent implements ICellEditorAngularComp {
+  passwordForm = new FormControl('', [
+    Validators.required,
+    Validators.pattern('.{4,}')
+  ]);
 
   inputValue = '';
 
@@ -25,6 +30,7 @@ export class PasswordCellEditorComponent implements ICellEditorAngularComp {
   }
 
   getValue() {
+    if( this.passwordForm.invalid ) return '';
     return this.inputValue;
   }
 

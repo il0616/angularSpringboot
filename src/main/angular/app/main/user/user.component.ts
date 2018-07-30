@@ -19,7 +19,9 @@ export class UserComponent implements OnInit {
     {
       headerName: 'User ID',
       field: 'userId',
-      checkboxSelection: true
+      checkboxSelection: true,
+      headerCheckboxSelection: true,
+      headerCheckboxSelectionFilteredOnly: true
     }, {
       headerName: 'Password',
       valueGetter: () => '**********',
